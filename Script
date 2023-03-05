@@ -1,0 +1,28 @@
+_G.autotap = true
+_G.autorebirth = true
+
+
+spawn(function()
+while _G.autotap == true do
+    local args = {
+        [1] = "Main"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Tap"):FireServer(unpack(args))
+wait()
+
+end
+end)
+
+spawn(function()
+    while _G.autorebirth == true do
+        local args = {
+            [1] = 1
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Rebirth"):FireServer(unpack(args))
+        wait()
+    end
+end)
+
+print ('hello')
